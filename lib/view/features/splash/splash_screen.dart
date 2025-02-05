@@ -23,12 +23,11 @@ class _SplashScreenState extends State<SplashScreen> {
 
   startTimer() {
     Timer(const Duration(seconds: 2), () async {
-      Get.toNamed(LoginScreen.routeName);
-      // if(await checkToken()){
-      //   Get.offAllNamed(LoginScreen.routeName);
-      // }else{
-      //   Get.offAllNamed(LoginScreen.routeName);
-      // }
+      if(await checkToken()){
+        Get.offAllNamed(LoginScreen.routeName);
+      }else{
+        Get.offAllNamed(LoginScreen.routeName);
+      }
     });
   }
 
@@ -37,7 +36,6 @@ class _SplashScreenState extends State<SplashScreen> {
     startTimer();
     super.initState();
   }
-
 
   @override
   Widget build(BuildContext context) {

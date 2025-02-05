@@ -20,10 +20,16 @@ class LoginController extends GetxController {
   var buttonVisibility = false.obs;
   var isLoading = false.obs;
 
-
   //login button visibility
   void loginButtonVisibility() {
     buttonVisibility.value = !isEmailError.value && !isPasswordError.value;
+    update();
+  }
+
+  Future<void> assignDefaultValueForAllVariable()async{
+    emailController.text = "adming@gmail.com";
+    passwordController.text = "12345678";
+    loginButtonVisibility();
   }
 
 }
