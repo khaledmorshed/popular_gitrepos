@@ -16,17 +16,24 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final controller = Get.find<HomeController>();
 
+
+
+
+  // api call
   initialize()async{
+    controller.isLoading.value = true;
     await controller.getRepository();
   }
 
   @override
   void initState() {
+    controller.scrollController.addListener(controller.onScroll);
     WidgetsBinding.instance.addPostFrameCallback((_){
       initialize();
     });
     super.initState();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -37,17 +44,24 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: screenPadding(),
         child: GetBuilder<HomeController>(
           builder: (controller) {
+            print("cont....${controller.githubItems.length}");
             return controller.isLoading.value ? Center(child: CircularProgressIndicator()) : ListView(
-              children: controller.githubItems.isEmpty ? [] :
-              controller.githubItems .map((item){
-                int index = controller.githubItems.indexOf(item);
-                return  Padding(
-                  padding: EdgeInsets.only(bottom: 12, top: index == 0 ? 12 : 0),
-                  child: HomeScreenRepositoryBlockWidget(
-                    githubItems: item,
-                  ),
-                );
-              }).toList(),
+              controller: controller.scrollController,
+              children: controller.githubItems.isEmpty ? [] : [
+                ...controller.githubItems.map((item){
+                  int index = controller.githubItems.indexOf(item);
+                  return  Padding(
+                    padding: EdgeInsets.only(bottom: 12, top: index == 0 ? 12 : 0),
+                    child: HomeScreenRepositoryBlockWidget(
+                      githubItems: item,
+                    ),
+                  );
+                }).toList(),
+                if(controller.paginationIsLoading.value) Center(child: Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: CircularProgressIndicator(),
+                )),
+              ]
             );
           }
         ),

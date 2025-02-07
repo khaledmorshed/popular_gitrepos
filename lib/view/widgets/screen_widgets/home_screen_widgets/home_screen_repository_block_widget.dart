@@ -16,22 +16,26 @@ class HomeScreenRepositoryBlockWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomContainerWidget(
-      themeIndex: 2,
-      isBoarderRadius: true,
-      padding: 12,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          CircleAvatar(
-            backgroundImage: NetworkImage(githubItems.owner!.avatarUrl!),
-            radius: 35.h,
+    return Column(
+      children: [
+        CustomContainerWidget(
+          themeIndex: 2,
+          isBoarderRadius: true,
+          padding: 12,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                backgroundImage: NetworkImage(githubItems.owner!.avatarUrl!),
+                radius: 35.h,
+              ),
+              szH15(),
+              _getDetailsView(),
+            ],
           ),
-          szH15(),
-          _getDetailsView(),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
