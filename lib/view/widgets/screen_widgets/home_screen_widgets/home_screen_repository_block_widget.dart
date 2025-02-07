@@ -8,11 +8,9 @@ import '../../custom_widgets/custom_circular_image_widget.dart';
 
 class HomeScreenRepositoryBlockWidget extends StatelessWidget {
   final GithubItems githubItems;
-  final int index;
    const HomeScreenRepositoryBlockWidget({
     super.key,
     required this.githubItems,
-     this.index = 0,
   });
 
   @override
@@ -61,8 +59,6 @@ class HomeScreenRepositoryBlockWidget extends StatelessWidget {
               maxLines: 1,
               style: myTxt13(),
             ),
-            Text(index.toString(), maxLines: 1,style: myTxt13(),),
-
             szH6(),
             _getForkStarWatcherView(),
           ],

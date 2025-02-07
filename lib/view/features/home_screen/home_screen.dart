@@ -54,7 +54,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     padding: EdgeInsets.only(bottom: 12, top: index == 0 ? 12 : 0),
                     child: HomeScreenRepositoryBlockWidget(
                       githubItems: item,
-                      index: index,
                     ),
                   );
                 }).toList(),
