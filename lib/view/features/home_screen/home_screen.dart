@@ -16,9 +16,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final controller = Get.find<HomeController>();
 
-
-
-
   // api call
   initialize()async{
     controller.isLoading.value = true;
@@ -34,7 +31,6 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return CustomScaffoldWidget(
@@ -44,16 +40,21 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: screenPadding(),
         child: GetBuilder<HomeController>(
           builder: (controller) {
-            print("cont....${controller.githubItems.length}");
-            return controller.isLoading.value ? Center(child: CircularProgressIndicator()) : ListView(
+            return controller.isLoading.value ? Center(child: CircularProgressIndicator()) :
+            controller.githubItems.isEmpty ? SizedBox(
+              height: double.infinity,
+              child: Center(child: Text("No Data Found")),
+            ) : 
+            ListView(
               controller: controller.scrollController,
-              children: controller.githubItems.isEmpty ? [] : [
+              children:  [
                 ...controller.githubItems.map((item){
                   int index = controller.githubItems.indexOf(item);
                   return  Padding(
                     padding: EdgeInsets.only(bottom: 12, top: index == 0 ? 12 : 0),
                     child: HomeScreenRepositoryBlockWidget(
                       githubItems: item,
+                      index: index,
                     ),
                   );
                 }).toList(),

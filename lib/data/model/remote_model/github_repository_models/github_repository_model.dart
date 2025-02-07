@@ -19,7 +19,7 @@ class GithubRepositoryModel {
 }
 
 class GithubItems {
-  int? id;
+  String? id;
   String? nodeId;
   String? name;
   String? fullName;
@@ -74,8 +74,8 @@ class GithubItems {
   String? svnUrl;
   String? homepage;
   int? size;
-  int? stargazersCount;
-  int? watchersCount;
+  String? stargazersCount;
+  String? watchersCount;
   String? language;
   bool? hasIssues;
   bool? hasProjects;
@@ -94,7 +94,7 @@ class GithubItems {
   bool? webCommitSignoffRequired;
   List<String>? topics;
   String? visibility;
-  int? forks;
+  String? forks;
   int? openIssues;
   int? watchers;
   String? defaultBranch;
@@ -183,7 +183,7 @@ class GithubItems {
         this.score});
 
   GithubItems.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
+    id = json['id'].toString();
     nodeId = json['node_id'];
     name = json['name'];
     fullName = json['full_name'];
@@ -238,8 +238,8 @@ class GithubItems {
     svnUrl = json['svn_url'];
     homepage = json['homepage'];
     size = json['size'];
-    stargazersCount = json['stargazers_count'];
-    watchersCount = json['watchers_count'];
+    stargazersCount = json['stargazers_count'].toString();
+    watchersCount = json['watchers_count'].toString();
     language = json['language'];
     hasIssues = json['has_issues'];
     hasProjects = json['has_projects'];
@@ -259,7 +259,7 @@ class GithubItems {
     webCommitSignoffRequired = json['web_commit_signoff_required'];
     topics = json['topics'].cast<String>();
     visibility = json['visibility'];
-    forks = json['forks'];
+    forks = json['forks'].toString();
     openIssues = json['open_issues'];
     watchers = json['watchers'];
     defaultBranch = json['default_branch'];

@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:untitled/utils/global/size_box.dart';
 import 'package:untitled/utils/style/app_style.dart';
 import 'package:untitled/view/widgets/custom_widgets/custom_container_widget.dart';
 import 'package:untitled/view/widgets/custom_widgets/custom_icon_widget.dart';
 import '../../../../data/model/remote_model/github_repository_models/github_repository_model.dart';
+import '../../custom_widgets/custom_circular_image_widget.dart';
 
 class HomeScreenRepositoryBlockWidget extends StatelessWidget {
   final GithubItems githubItems;
-
+  final int index;
    const HomeScreenRepositoryBlockWidget({
     super.key,
     required this.githubItems,
+     this.index = 0,
   });
 
   @override
@@ -26,9 +27,10 @@ class HomeScreenRepositoryBlockWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              CircleAvatar(
-                backgroundImage: NetworkImage(githubItems.owner!.avatarUrl!),
-                radius: 35.h,
+              CustomCircularImageWidget(
+                cacheImageUrl: githubItems.owner!.avatarUrl!,
+                errorImageWidget: "assets/images/flutter.png",
+                progressIndicatorImage: "assets/images/flutter.png",
               ),
               szH15(),
               _getDetailsView(),
@@ -59,6 +61,8 @@ class HomeScreenRepositoryBlockWidget extends StatelessWidget {
               maxLines: 1,
               style: myTxt13(),
             ),
+            Text(index.toString(), maxLines: 1,style: myTxt13(),),
+
             szH6(),
             _getForkStarWatcherView(),
           ],
@@ -82,7 +86,7 @@ class HomeScreenRepositoryBlockWidget extends StatelessWidget {
                 color: Colors.black,
               ),
               szW2(),
-              Flexible(child: Text(githubItems.forksCount.toString(), maxLines: 1, style: myTxt13(),)),
+              Flexible(child: Text(githubItems.forks.toString(), maxLines: 1, style: myTxt13(),)),
             ],
           ),
         ),
@@ -110,7 +114,7 @@ class HomeScreenRepositoryBlockWidget extends StatelessWidget {
                 color: Colors.black,
               ),
               szW2(),
-              Flexible(child: Text(githubItems.watchers.toString(), maxLines: 1,style: myTxt13(),)),
+              Flexible(child: Text(githubItems.watchersCount.toString(), maxLines: 1,style: myTxt13(),)),
             ],
           ),
         ),

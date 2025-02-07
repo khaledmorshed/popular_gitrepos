@@ -59,15 +59,12 @@ class CustomScaffoldWidget extends StatelessWidget {
         actions: appBarActionList,
         centerTitle: centerTitle,
         leading: leading,
-        title: appBarTitle is String ? Text(appBarTitle, style: myTxt14(color: Theme.of(context).appBarTheme.iconTheme!.color!),) : appBarTitle,
-
+        title: appBarTitle is String ? Text(appBarTitle, style: myTxt15(color: Theme.of(context).appBarTheme.iconTheme!.color!, fontWeight: FontWeight.w600),) : appBarTitle,
         shape: !isAppBarWithPreferredSize
             ? null
             : const RoundedRectangleBorder(
-
           borderRadius: BorderRadius.vertical(
             bottom: Radius.circular(40),
-
           ),
         ),
         bottom: isAppBarWithTabBar ? appBarBottomWidget : isAppBarWithPreferredSize
