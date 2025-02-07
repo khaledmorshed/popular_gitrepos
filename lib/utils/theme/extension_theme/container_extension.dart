@@ -10,9 +10,9 @@ final containerThemeLightExtension = ContainerThemeExtend(
     //background, boarder(secondary, none)--1
     [appSecondaryColor, Color(0xff008080), Color(0xff000000)],
     //background, boarder(white, none)--2
-    [appWhiteColor, Color(0xffffffff), Color(0xff000000)],
+    [whiteOnly, Color(0xffffffff), Color(0xff000000)],
     //background, boarder(white, yellow type)--3
-    [appWhiteColor, appOrangeColor, Color(0xff000000)],
+    [whiteOnly, appOrangeColor, Color(0xff000000)],
   ],
 );
 

@@ -6,7 +6,6 @@ const  Color textFieldTextLightFirst = Color(0xff050000);
 //text color dark
 const  Color textFieldTextDarkFirst = Color(0xfffbfbfb);
 
-
 //boarder  color light
 const  Color textFieldBoarderColorLightFirst = Color(0xffBDBDBD);
 const  Color textFieldEnableBoarderColorLightFirst = Color(0xffBDBDBD);

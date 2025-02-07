@@ -39,10 +39,6 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.details_outlined),
-              label: 'Details',
-            ),
-            BottomNavigationBarItem(
               icon: Icon(Icons.menu),
               label: 'Menu',
             ),

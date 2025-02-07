@@ -10,10 +10,11 @@ class HomeRepo {
   HomeRepo({required this.dioClient});
 
   //get popular repository
-  Future<ApiResponse> getRepository(var data) async {
+  Future<ApiResponse> getRepository(var queryParams) async {
     try {
       Response response = await dioClient.get(
         AppConstants.baseUrl+AppConstants.repository,
+        queryParameters: queryParams
       );
       return ApiResponse.withSuccess(response);
     } catch (e) {

@@ -13,6 +13,7 @@ class LoggingInterceptor extends InterceptorsWrapper{
     if (kDebugMode) {
       print("--> ${options.method} ${options.path}");
       print("Headers: ${options.headers.toString()}");
+      print("QueryParams: ${options.queryParameters.toString()}");
       print("<-- END HTTP");
     }
 

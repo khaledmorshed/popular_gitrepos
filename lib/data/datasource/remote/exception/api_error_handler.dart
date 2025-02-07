@@ -68,14 +68,15 @@ class ApiErrorHandler {
             return responseModel;
           case DioExceptionType.badResponse:
             switch (error.response!.statusCode) {
-              case 404:
-                errorDescription = "No data found";
+              case 304:
+                errorDescription = getErrorMessage(error.response!.data);
                 responseModel = ApiResponse(
                   response: error.response,
                   message: errorDescription,
                 );
                 return responseModel;
               case 400:
+                errorDescription = getErrorMessage(error.response!.data);
                 responseModel = ApiResponse(
                   response: error.response,
                   message: errorDescription,
@@ -93,13 +94,33 @@ class ApiErrorHandler {
                   message: errorDescription,
                 );
                 return responseModel;
+              case 403:
+                errorDescription = getErrorMessage(error.response!.data);
+                responseModel = ApiResponse(
+                  response: error.response,
+                  message: errorDescription,
+                );
+                return responseModel;
+              case 404:
+                errorDescription = "No data found";
+                responseModel = ApiResponse(
+                  response: error.response,
+                  message: errorDescription,
+                );
+                return responseModel;
               case 406:
                 errorDescription = getErrorMessage(error.response!.data);
                 if (kDebugMode) {
                   print("errorDec.....$errorDescription");
                   print("errorDescription..401..$errorDescription");
                 }
-
+                responseModel = ApiResponse(
+                  response: error.response,
+                  message: errorDescription,
+                );
+                return responseModel;
+              case 422:
+                errorDescription = getErrorMessage(error.response!.data);
                 responseModel = ApiResponse(
                   response: error.response,
                   message: errorDescription,
@@ -112,18 +133,6 @@ class ApiErrorHandler {
                   message: errorDescription,
                 );
                 return responseModel;
-              case 422:
-                responseModel = ApiResponse(
-                  response: error.response,
-                  message: errorDescription,
-                );
-                return responseModel;
-              case 406:
-              responseModel = ApiResponse(
-                response: error.response,
-                message: errorDescription,
-              );
-              return responseModel;
               case 503:
                 errorDescription = getErrorMessage(error.response!.data);
                 responseModel = ApiResponse(

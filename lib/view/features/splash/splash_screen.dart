@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:untitled/view/features/bottom_nav_bar_screen/bottom_nav_bar_screen.dart';
 import '../../../data/repositories/local/sharepreferences_class.dart';
 import '../../../utils/theme/app_colors/basic_color.dart';
 import '../../widgets/custom_widgets/bounce_animation_builder_widget.dart';
@@ -24,9 +25,11 @@ class _SplashScreenState extends State<SplashScreen> {
   startTimer() {
     Timer(const Duration(seconds: 2), () async {
       if(await checkToken()){
-        Get.offAllNamed(LoginScreen.routeName);
+       // Get.offAllNamed(LoginScreen.routeName);
+        Get.offAllNamed(BottomNavBarScreen.routeName);
       }else{
-        Get.offAllNamed(LoginScreen.routeName);
+       // Get.offAllNamed(LoginScreen.routeName);
+        Get.offAllNamed(BottomNavBarScreen.routeName);
       }
     });
   }

@@ -97,7 +97,7 @@ class CustomElevatedButton extends StatelessWidget {
           ),
         ),
         child: textWidget is String
-            ? Text(textWidget, overflow: TextOverflow.ellipsis, style: myTxt14(color: appWhiteColor))
+            ? Text(textWidget, overflow: TextOverflow.ellipsis, style: myTxt14(color: whiteOnly))
             : textWidget,
       ),
     );

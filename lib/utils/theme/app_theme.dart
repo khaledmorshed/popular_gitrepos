@@ -13,7 +13,7 @@ class AppTheme{
 
   //light theme
   static final lightTheme = ThemeData(
-      scaffoldBackgroundColor: whiteOnly,
+      scaffoldBackgroundColor: scaffoldBackGroundColorWhite,
       primaryColor:  appPrimaryColor,
       primaryColorLight: appPrimaryColor,
       appBarTheme: const AppBarTheme(

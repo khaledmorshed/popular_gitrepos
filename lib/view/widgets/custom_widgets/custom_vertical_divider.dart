@@ -9,7 +9,7 @@ class CustomVerticalDivider extends StatelessWidget {
   const CustomVerticalDivider({
     this.width = 1.2,
     this.height = 60,
-    this.color = appWhiteColor,
+    this.color = whiteOnly,
     this.boarderRadius = 5,
     super.key
   });

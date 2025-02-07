@@ -8,7 +8,7 @@ final checkBoxThemeLightExtension = CheckBoxThemeExtend(
     //active color, check color, boarder color(primary, white, black)--0
     [appPrimaryColor, whiteOnly, blackOnly],
     [appSecondaryColor, Color(0xff008080), Color(0xff000000)],
-    [appWhiteColor, Color(0xffffffff), Color(0xff000000)],
+    [whiteOnly, Color(0xffffffff), Color(0xff000000)],
   ],
 );
 

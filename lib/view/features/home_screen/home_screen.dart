@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/controller/home_controller.dart';
+import 'package:untitled/utils/global/screen_padding.dart';
 import '../../widgets/custom_widgets/custom_scaffold_widget.dart';
+import '../../widgets/screen_widgets/home_screen_widgets/home_screen_repository_block_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/HomeScreen';
@@ -12,13 +14,44 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final productLandingController = Get.find<HomeController>();
+  final controller = Get.find<HomeController>();
+
+  initialize()async{
+    await controller.getRepository();
+  }
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((_){
+      initialize();
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return CustomScaffoldWidget(
-      body: Container(),
-
+      isAppBar: true,
+      appBarTitle: "Github Repository",
+      body: Padding(
+        padding: screenPadding(),
+        child: GetBuilder<HomeController>(
+          builder: (controller) {
+            return controller.isLoading.value ? Center(child: CircularProgressIndicator()) : ListView(
+              children: controller.githubItems.isEmpty ? [] :
+              controller.githubItems .map((item){
+                int index = controller.githubItems.indexOf(item);
+                return  Padding(
+                  padding: EdgeInsets.only(bottom: 12, top: index == 0 ? 12 : 0),
+                  child: HomeScreenRepositoryBlockWidget(
+                    githubItems: item,
+                  ),
+                );
+              }).toList(),
+            );
+          }
+        ),
+      ),
     );
 
   }
