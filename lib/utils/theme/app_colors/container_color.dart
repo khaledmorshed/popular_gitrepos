@@ -8,4 +8,4 @@ const Color containerBgColorThreeLight = Color(0xffedf6f6);
 //dark
 const Color containerBackGroundColorDark =  appPrimaryDarkColor;
 const Color containerBoarderColorDark =  appPrimaryDarkColor;
-const Color containerBgColorThreeDark = Color(0xBE7A7A7A);
+const Color containerBgColorThreeDark = Color(0xff364450);
