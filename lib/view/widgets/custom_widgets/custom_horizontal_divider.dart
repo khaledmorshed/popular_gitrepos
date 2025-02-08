@@ -9,7 +9,7 @@ class CustomHorizontalDivider extends StatelessWidget {
   const CustomHorizontalDivider({
     this.width = 60,
     this.height = 1.2,
-    this.color = whiteOnly,
+    this.color = grey400,
     super.key
   });
 

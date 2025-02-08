@@ -46,14 +46,10 @@ class _SettingsScreenState extends State<SettingsScreen> {
                           color: Theme.of(context).colorScheme.onPrimary
                       ),
                       child: ClipRRect(
-                        // borderRadius: BorderRadius.circular(26),
-                        //backgroundImage: profileProvider.userProfileModel!.results!.photo != null ? Image.network(profileProvider.userProfileModel!.results!.photo!.filePath.toString()).image : null,
-                        //child: profileProvider.userProfileModel!.results!.photo == null ? txt25(firstLetter, fontWeight: FontWeight.w500) : null,
                         child:  Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset("assets/images/flutter.png", scale: 1, fit: BoxFit.cover,),
-                        )  /*Image.network(profileProvider.userProfileModel!.results!.photo!.filePath.toString()).image*/ ,
-                        // child: profileProvider.userProfileModel!.results!.photo != null ? txt25(firstLetter, fontWeight: FontWeight.w500) : Image.asset("assets/logo/fore_ground/fore_ground_icon.png", height: 30, width: 30,) ,
+                        ),
                       ),
                     ),
                     szW15(),
