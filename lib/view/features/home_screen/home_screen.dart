@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/controller/home_controller.dart';
 import 'package:untitled/utils/global/screen_padding.dart';
+import 'package:untitled/view/features/details_screen/details_screen.dart';
 import '../../widgets/custom_widgets/custom_scaffold_widget.dart';
 import '../../widgets/screen_widgets/home_screen_widgets/home_screen_repository_block_widget.dart';
 
@@ -50,10 +51,15 @@ class _HomeScreenState extends State<HomeScreen> {
               children:  [
                 ...controller.githubItems.map((item){
                   int index = controller.githubItems.indexOf(item);
-                  return  Padding(
-                    padding: EdgeInsets.only(bottom: 12, top: index == 0 ? 12 : 0),
-                    child: HomeScreenRepositoryBlockWidget(
-                      githubItems: item,
+                  return  InkWell(
+                    onTap: (){
+                      Get.to(DetailsScreen(githubItems: item));
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.only(bottom: 12, top: index == 0 ? 12 : 0),
+                      child: HomeScreenRepositoryBlockWidget(
+                        githubItems: item,
+                      ),
                     ),
                   );
                 }).toList(),

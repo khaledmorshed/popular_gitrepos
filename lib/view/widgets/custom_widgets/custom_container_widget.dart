@@ -62,6 +62,13 @@ class CustomContainerWidget extends StatelessWidget {
   final bool isBoxShadow ;
   final bool isBoarderRadius ;
   final DecorationImage? image ;
+  final Alignment alignment ;
+  final bool isOnlyBorderRadius;
+  final double topLeftBorderRadius;
+  final double topRightBorderRadius;
+  final double bottomLeftBorderRadius;
+  final double bottomRightBorderRadius;
+  final bool isAllBoarderRadius ;
 
   const CustomContainerWidget({
     super.key,
@@ -114,6 +121,13 @@ class CustomContainerWidget extends StatelessWidget {
     this.isBoxShadow = false,
     this.isBoarderRadius = false,
     this.image,
+    this.alignment = Alignment.center,
+    this.isOnlyBorderRadius = false,
+    this.topLeftBorderRadius = 0,
+    this.topRightBorderRadius = 0,
+    this.bottomRightBorderRadius = 0,
+    this.bottomLeftBorderRadius = 0,
+    this.isAllBoarderRadius = false,
   });
 
   @override
@@ -132,12 +146,14 @@ class CustomContainerWidget extends StatelessWidget {
       width: width,
       padding: isOnlyPadding ? EdgeInsets.only(left: leftPadding, right: rightPadding, top: topPadding, bottom: bottomPadding) : isSymmetricPadding ? EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: verticalPadding) : EdgeInsets.all(padding),
       margin: isOnlyMargin ? EdgeInsets.only(left: leftMargin, right: rightMargin, top: topMargin, bottom: bottomMargin) : isSymmetricMargin ? EdgeInsets.symmetric(horizontal: horizontalMargin, vertical: verticalMargin) : EdgeInsets.all(margin),
-      alignment: Alignment.center,
+      alignment: alignment,
       decoration: BoxDecoration(
         image: image,
         shape: shape,
         color: bgColor.withOpacity(backGroundColorOpacity),
-        borderRadius: isBoarderRadius ? BorderRadius.all(Radius.circular(boarderRadius)) : null,
+        //borderRadius: isBoarderRadius ? BorderRadius.all(Radius.circular(boarderRadius)) : null,
+        borderRadius: isOnlyBorderRadius ? BorderRadius.only(topLeft: Radius.circular(topLeftBorderRadius), topRight: Radius.circular(topRightBorderRadius), bottomLeft: Radius.circular(bottomLeftBorderRadius), bottomRight: Radius.circular(bottomRightBorderRadius)) :  isAllBoarderRadius ?  BorderRadius.all(Radius.circular(boarderRadius)) : null,
+
         border: isOnlyBoarder ? Border(
           bottom: isBottomBoarder ? BorderSide(width: boarderWidth, color: bdColor.withOpacity(boarderColorOpacity)) : BorderSide.none,
           top: isTopBoarder ? BorderSide(width: boarderWidth, color: bdColor.withOpacity(boarderColorOpacity)) : BorderSide.none,

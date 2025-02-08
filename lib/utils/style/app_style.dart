@@ -30,8 +30,8 @@ myTxt15({Color color = Colors.black, FontWeight? fontWeight, double? fontSize, F
 }
 
 /// For Medium Size
-myTxt14({Color color = Colors.black, FontWeight? fontWeight, double? fontSize, FontStyle fonStyle = FontStyle.normal, TextStyle? texStyle}){
-  return GoogleFonts.aBeeZee(height: 0, fontSize: fontSize?.sp ?? 14.sp, color: color, fontWeight: fontWeight ?? FontWeight.normal, textStyle: texStyle, fontStyle: fonStyle,);
+myTxt14({Color color = Colors.black, FontWeight? fontWeight, double? height, double? letterSpacing, double? fontSize, FontStyle fonStyle = FontStyle.normal, TextStyle? texStyle}){
+  return GoogleFonts.aBeeZee(height: height, letterSpacing: letterSpacing, fontSize: fontSize?.sp ?? 14.sp, color: color, fontWeight: fontWeight ?? FontWeight.normal, textStyle: texStyle, fontStyle: fonStyle,);
 }
 
 /// For Medium Size
