@@ -37,6 +37,9 @@ class AppTheme{
        // selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
         //unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
       ),
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+        color: appPrimaryColor,
+      ),
       extensions: [
         textThemeLightExtension,
         textFormFieldThemeLightExtension,
@@ -67,6 +70,9 @@ class AppTheme{
       ),
       bottomAppBarTheme: const BottomAppBarTheme(
         color: appPrimaryDarkColor
+      ),
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+        color: whiteOnly,
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: appPrimaryDarkColor,
