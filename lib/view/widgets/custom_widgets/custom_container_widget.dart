@@ -60,7 +60,6 @@ class CustomContainerWidget extends StatelessWidget {
   final double padding;
   final double margin;
   final bool isBoxShadow ;
-  final bool isBoarderRadius ;
   final DecorationImage? image ;
   final Alignment alignment ;
   final bool isOnlyBorderRadius;
@@ -119,7 +118,6 @@ class CustomContainerWidget extends StatelessWidget {
     this.margin = 0,
     this.backGroundColorOpacity = 1,
     this.isBoxShadow = false,
-    this.isBoarderRadius = false,
     this.image,
     this.alignment = Alignment.center,
     this.isOnlyBorderRadius = false,
@@ -151,7 +149,6 @@ class CustomContainerWidget extends StatelessWidget {
         image: image,
         shape: shape,
         color: bgColor.withOpacity(backGroundColorOpacity),
-        //borderRadius: isBoarderRadius ? BorderRadius.all(Radius.circular(boarderRadius)) : null,
         borderRadius: isOnlyBorderRadius ? BorderRadius.only(topLeft: Radius.circular(topLeftBorderRadius), topRight: Radius.circular(topRightBorderRadius), bottomLeft: Radius.circular(bottomLeftBorderRadius), bottomRight: Radius.circular(bottomRightBorderRadius)) :  isAllBoarderRadius ?  BorderRadius.all(Radius.circular(boarderRadius)) : null,
 
         border: isOnlyBoarder ? Border(

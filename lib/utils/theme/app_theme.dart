@@ -30,6 +30,13 @@ class AppTheme{
       bottomAppBarTheme: const BottomAppBarTheme(
           color: appPrimaryColor
       ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: whiteOnly,
+        selectedItemColor: appPrimaryColor,
+        unselectedItemColor: blackOnly, // Unselected icon & text
+       // selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+        //unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
+      ),
       extensions: [
         textThemeLightExtension,
         textFormFieldThemeLightExtension,
@@ -41,7 +48,7 @@ class AppTheme{
         checkBoxThemeLightExtension,
       ]
   );
-  
+
   //dark theme
   static final darkTheme = ThemeData(
       scaffoldBackgroundColor: scaffoldBackGroundColorDark,
@@ -61,6 +68,14 @@ class AppTheme{
       bottomAppBarTheme: const BottomAppBarTheme(
         color: appPrimaryDarkColor
       ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: appPrimaryDarkColor,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.grey,
+       // selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+       // unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
+      ),
+
       extensions: [
         textThemeDarkExtension,
         textFormFieldThemeDarkExtension,
@@ -72,6 +87,6 @@ class AppTheme{
         checkBoxThemeDarkExtension,
       ]
   );
-  
+
 
 }

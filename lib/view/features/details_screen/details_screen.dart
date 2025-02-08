@@ -7,6 +7,7 @@ import 'package:untitled/utils/global/screen_padding.dart';
 import '../../../utils/global/size_box.dart';
 import '../../../utils/style/app_style.dart';
 import '../../../utils/theme/app_colors/basic_color.dart';
+import '../../../utils/theme/get_all_theme.dart';
 import '../../widgets/custom_widgets/custom_container_widget.dart';
 import '../../widgets/custom_widgets/custom_icon_widget.dart';
 import '../../widgets/custom_widgets/custom_scaffold_widget.dart';
@@ -36,13 +37,9 @@ class _DetailsScreenState extends State<DetailsScreen> {
               floating: true,
               pinned: true,
               automaticallyImplyLeading: true,
-              iconTheme: IconThemeData(
-                  color: whiteOnly
-              ),
               expandedHeight: 210.h,
               collapsedHeight: 50,
               toolbarHeight: 50,
-              backgroundColor: appPrimaryColor,
               title: Text("Details Screen", style: myTxt15(color: whiteOnly, fontWeight: FontWeight.w600),),
               centerTitle: true,
               flexibleSpace: FlexibleSpaceBar(
@@ -74,9 +71,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
         children: [
           szH15(),
           CustomContainerWidget(
-            themeIndex: 1,
+            themeIndex: 3,
             boarderRadius: 8,
-            backGroundColorOpacity: 0.1,
             child: Padding(
               padding: const EdgeInsets.all(15),
               child: Column(
@@ -86,14 +82,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
                       Text(
                         "Owner name: ",
                         //style: myTxt14(),
-                        style: myTxt14(fontWeight: FontWeight.w600),
+                        style: myTxt14(fontWeight: FontWeight.w600, color: GetTheme().txtTheme().txtColorBlack!),
                       ),
                       szW5(),
                       Text(
                         widget.githubItems!.owner!.login.toString(),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: myTxt14(),
+                        style: myTxt14(color: GetTheme().txtTheme().txtColorBlack!),
                       ),
                     ],
                   ),
@@ -102,7 +98,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     children: [
                       Text(
                         "Repository name: ",
-                        style: myTxt14(fontWeight: FontWeight.w600),
+                        style: myTxt14(fontWeight: FontWeight.w600, color: GetTheme().txtTheme().txtColorBlack!),
                       ),
                       szW5(),
                       Flexible(
@@ -110,7 +106,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           widget.githubItems!.fullName.toString(),
                           overflow: TextOverflow.ellipsis,
                           maxLines: 3,
-                          style: myTxt14(),
+                          style: myTxt14(color: GetTheme().txtTheme().txtColorBlack!),
                         ),
                       ),
                     ],
@@ -120,7 +116,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     children: [
                       Text(
                         "Last update time: ",
-                        style: myTxt14(fontWeight: FontWeight.w600),
+                        style: myTxt14(fontWeight: FontWeight.w600,color: GetTheme().txtTheme().txtColorBlack!),
                       ),
                       szW5(),
                       Flexible(
@@ -128,7 +124,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                           DateTimeFormatClass().formatDateTime(widget.githubItems!.updatedAt.toString()),
                           overflow: TextOverflow.ellipsis,
                           maxLines: 2,
-                          style: myTxt14(),
+                          style: myTxt14(color: GetTheme().txtTheme().txtColorBlack!),
                         ),
                       ),
                     ],
@@ -148,13 +144,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 Text(
                   "Description: ",
                   //style: myTxt14(),
-                  style: myTxt14(fontWeight: FontWeight.w600,),
+                  style: myTxt14(fontWeight: FontWeight.w600, color: GetTheme().txtTheme().txtColorBlack!),
                 ),
                 szH5(),
                 Text(
                   widget.githubItems!.description.toString(),
                   textAlign: TextAlign.justify,
-                  style: myTxt14(height: 1.9, ),
+                  style: myTxt14(height: 1.9, color: GetTheme().txtTheme().txtColorBlack!),
                 ),
               ],
             ),
@@ -172,6 +168,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
           child: Row(
             children: [
               CustomIconWidget(
+                themeIndex: 1,
                 child: "assets/images/ic_fork.svg",
                 isSvgString: true,
                 height: 20,
@@ -179,7 +176,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 color: Colors.black,
               ),
               szW2(),
-              Flexible(child: Text(widget.githubItems!.forks.toString(), maxLines: 1, style: myTxt13(),)),
+              Flexible(child: Text(widget.githubItems!.forks.toString(), maxLines: 1, style: myTxt13(color: GetTheme().txtTheme().txtColorBlack!),)),
             ],
           ),
         ),
@@ -187,13 +184,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
           child: Row(
             children: [
               CustomIconWidget(
+                themeIndex: 1,
                 child: Icons.star_border,
                 height: 20,
                 width: 20,
                 color: Colors.black,
               ),
               szW2(),
-              Flexible(child: Text(widget.githubItems!.stargazersCount.toString(), maxLines: 1,style: myTxt13(),)),
+              Flexible(child: Text(widget.githubItems!.stargazersCount.toString(), maxLines: 1,style: myTxt13(color: GetTheme().txtTheme().txtColorBlack!),)),
             ],
           ),
         ),
@@ -201,13 +199,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
           child: Row(
             children: [
               CustomIconWidget(
+                themeIndex: 1,
                 child: Icons.visibility_outlined,
                 height: 20,
                 width: 20,
                 color: Colors.black,
               ),
               szW2(),
-              Flexible(child: Text(widget.githubItems!.watchersCount.toString(), maxLines: 1,style: myTxt13(),)),
+              Flexible(child: Text(widget.githubItems!.watchersCount.toString(), maxLines: 1,style: myTxt13(color: GetTheme().txtTheme().txtColorBlack!),)),
             ],
           ),
         ),

@@ -1,34 +1,19 @@
 import 'package:flutter/material.dart';
 
+@immutable
 class IconThemeExtend extends ThemeExtension<IconThemeExtend> {
-  final IconThemeData? iconThemePrimary;
-  final IconThemeData? iconThemeSecondary;
-  final IconThemeData? iconThemeFirst;
-  final IconThemeData? iconThemeSecond;
-  final IconThemeData? iconThemeThird;
+  final List<IconThemeData> iconThemes;
 
   const IconThemeExtend({
-    this.iconThemePrimary,
-    this.iconThemeSecondary,
-    this.iconThemeFirst,
-    this.iconThemeSecond,
-    this.iconThemeThird,
-  });
+    required this.iconThemes,
+  }) : assert(iconThemes.length == 5); // Adjust this length as needed
 
   @override
   IconThemeExtend copyWith({
-    IconThemeData? iconThemePrimary,
-    IconThemeData? iconThemeScondary,
-    IconThemeData? iconThemeFirst,
-    IconThemeData? iconThemeSecond,
-    IconThemeData? iconThemeThird,
+    List<IconThemeData>? iconThemes,
   }) {
     return IconThemeExtend(
-      iconThemePrimary: iconThemePrimary ?? this.iconThemePrimary,
-      iconThemeSecondary: iconThemeScondary ?? this.iconThemeSecondary,
-      iconThemeFirst: iconThemeFirst ?? this.iconThemeFirst,
-      iconThemeSecond: iconThemeSecond ?? this.iconThemeSecond,
-      iconThemeThird: iconThemeThird ?? this.iconThemeThird,
+      iconThemes: iconThemes ?? this.iconThemes,
     );
   }
 
@@ -37,11 +22,12 @@ class IconThemeExtend extends ThemeExtension<IconThemeExtend> {
     if (other is! IconThemeExtend) return this;
 
     return IconThemeExtend(
-      iconThemePrimary: IconThemeData.lerp(iconThemePrimary, other.iconThemePrimary, t),
-      iconThemeSecondary: IconThemeData.lerp(iconThemeSecondary, other.iconThemeSecondary, t),
-      iconThemeFirst: IconThemeData.lerp(iconThemeFirst, other.iconThemeFirst, t),
-      iconThemeSecond: IconThemeData.lerp(iconThemeSecond, other.iconThemeSecond, t),
-      iconThemeThird: IconThemeData.lerp(iconThemeThird, other.iconThemeThird, t),
+      iconThemes: List<IconThemeData>.generate(
+        iconThemes.length,
+            (index) => IconThemeData.lerp(iconThemes[index], other.iconThemes[index], t) ?? iconThemes[index],
+      ),
     );
   }
+
+  IconThemeData getIconTheme(int index) => iconThemes[index];
 }

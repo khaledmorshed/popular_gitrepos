@@ -10,6 +10,4 @@ class AppConstants {
   static const String repository = "/search/repositories";
 
 
-  static const String themeKey = 'theme_mode';
-
 }

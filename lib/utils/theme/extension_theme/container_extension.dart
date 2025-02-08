@@ -12,7 +12,7 @@ final containerThemeLightExtension = ContainerThemeExtend(
     //background, boarder(white, none)--2
     [whiteOnly, Color(0xffffffff), Color(0xff000000)],
     //background, boarder(white, yellow type)--3
-    [whiteOnly, appOrangeColor, Color(0xff000000)],
+    [containerBgColorThreeLight, appOrangeColor, Color(0xff000000)],
   ],
 );
 
@@ -20,12 +20,12 @@ final containerThemeLightExtension = ContainerThemeExtend(
 final containerThemeDarkExtension = ContainerThemeExtend(
   containerBackgroundBoarderBoxShadowColorList:  [
     //background, boarder, shadowColor(primary, none, _)--0
-    const [Color(0xff0057A3), Color(0xff0057A3), Color(0xffb13737)],
+    const [containerBackGroundColorDark, Color(0xff0057A3), Color(0xffb13737)],
     //background, boarder(secondary, none)--1
     const [containerBackGroundColorDark, containerBoarderColorDark, Color(0xffc33434)],
     //background, boarder(white, none)--2
     const [containerBackGroundColorDark, containerBoarderColorDark, Color(0xff000000)],
     //background, boarder(white, orange type)--3
-    const [containerBackGroundColorDark, appOrangeColor, Color(0xffa83131)],
+    const [containerBgColorThreeDark, appOrangeColor, Color(0xffa83131)],
   ],
 );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../home_screen/home_screen.dart';
+import '../settings_screen/settings_screen.dart';
 
 class BottomNavBarScreen extends StatefulWidget {
   static const String routeName = '/BottomNavBarScreen';
@@ -28,7 +29,6 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
           topRight: Radius.circular(15),
         ),
         child: BottomNavigationBar(
-          backgroundColor: Colors.white,
           elevation: 20,
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
@@ -39,8 +39,8 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.menu),
-              label: 'Menu',
+              icon: Icon(Icons.settings),
+              label: 'Settings',
             ),
           ],
         ),
@@ -48,16 +48,12 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
     );
   }
 
-
  getBody() {
     if (_selectedIndex == 0 ) {
       return const HomeScreen();
     }
     if (_selectedIndex == 1) {
-      return const HomeScreen();
-    }
-    if (_selectedIndex == 2) {
-      return const HomeScreen();
+      return const SettingsScreen();
     }
     return null;
   }

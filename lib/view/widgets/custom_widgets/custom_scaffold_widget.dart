@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:untitled/utils/style/app_style.dart';
+import 'package:untitled/utils/theme/app_colors/all_colors_export.dart';
+
+import '../../../utils/theme/get_all_theme.dart';
 
 class CustomScaffoldWidget extends StatelessWidget {
   final Widget? body;
@@ -59,7 +62,7 @@ class CustomScaffoldWidget extends StatelessWidget {
         actions: appBarActionList,
         centerTitle: centerTitle,
         leading: leading,
-        title: appBarTitle is String ? Text(appBarTitle, style: myTxt15(color: Theme.of(context).appBarTheme.iconTheme!.color!, fontWeight: FontWeight.w600),) : appBarTitle,
+        title: appBarTitle is String ? Text(appBarTitle, style: myTxt15(color: whiteOnly, fontWeight: FontWeight.w600),) : appBarTitle,
         shape: !isAppBarWithPreferredSize
             ? null
             : const RoundedRectangleBorder(

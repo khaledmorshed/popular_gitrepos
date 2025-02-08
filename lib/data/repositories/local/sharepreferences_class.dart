@@ -23,6 +23,7 @@ class SharedPreferencesClass{
   static const String userName = "UserName";
   static const String fcmToken = "fcmToken";
   static const String loginRememberMe = "loginRememberMe";
+  static const String themeKey = 'theme_mode';
 
 
   static setValue(String key,String? value) async{

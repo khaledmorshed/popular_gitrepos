@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:untitled/controller/home_controller.dart';
+import 'package:untitled/controller/theme_controller.dart';
 import 'package:untitled/utils/global/screen_padding.dart';
+import 'package:untitled/utils/style/app_style.dart';
 import 'package:untitled/view/features/details_screen/details_screen.dart';
+import '../../../utils/theme/get_all_theme.dart';
 import '../../widgets/custom_widgets/custom_scaffold_widget.dart';
+import '../../widgets/custom_widgets/theme_button_widget.dart';
 import '../../widgets/screen_widgets/home_screen_widgets/home_screen_repository_block_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -44,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
             return controller.isLoading.value ? Center(child: CircularProgressIndicator()) :
             controller.githubItems.isEmpty ? SizedBox(
               height: double.infinity,
-              child: Center(child: Text("No Data Found")),
+              child: Center(child: Text("No Data Found", style: myTxt14(color: GetTheme().txtTheme().txtColorBlack!),)),
             ) : 
             ListView(
               controller: controller.scrollController,
